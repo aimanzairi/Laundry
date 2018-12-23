@@ -20,6 +20,9 @@ import { RequestdetailsPage } from '../pages/requestdetails/requestdetails';
 import { RunnerhomePage } from '../pages/runnerhome/runnerhome';
 import { ResitPage } from '../pages/resit/resit';
 import { Calendar1Page } from '../pages/calendar1/calendar1';
+import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
+import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
+import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
 
 
 @Component({
@@ -28,7 +31,7 @@ import { Calendar1Page } from '../pages/calendar1/calendar1';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = FirstPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -54,6 +57,9 @@ export class MyApp {
       { title: 'Runner Home', component: RunnerhomePage },
       { title: 'Resit', component: ResitPage },
       { title: 'Booking Slot', component: Calendar1Page },
+      { title: 'Register (Runner)', component: RegisterrunnerPage },
+      { title: 'Register (Laundry)', component: RegisterlaundryPage },
+      { title: 'Home (Laundry)', component: LaundryhomePage },
     ];
 
   }

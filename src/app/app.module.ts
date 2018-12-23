@@ -26,6 +26,9 @@ import { Calendar1Page } from '../pages/calendar1/calendar1';
 
 import { CalendarModule } from 'ionic3-calendar-en';
 import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar";
+import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
+import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
+import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
 
 
 
@@ -49,7 +52,10 @@ import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar"
     RunnerhomePage,
     ResitPage,
     CalendarComponent,
-    Calendar1Page
+    Calendar1Page,
+    RegisterrunnerPage,
+    RegisterlaundryPage,
+    LaundryhomePage,
     
   ],
   imports: [
@@ -78,7 +84,10 @@ import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar"
     RunnerhomePage,
     ResitPage,
     CalendarComponent,
-    Calendar1Page
+    Calendar1Page,
+    RegisterrunnerPage,
+    RegisterlaundryPage,
+    LaundryhomePage,
     
   ],
   providers: [
