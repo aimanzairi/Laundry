@@ -1,0 +1,7 @@
+{
+  "name": "Laundry",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
