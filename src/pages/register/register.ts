@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomeePage } from '../homee/homee';
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../services/auth.service'
 /**
  * Generated class for the RegisterPage page.
  *
@@ -16,12 +17,43 @@ import { HomeePage } from '../homee/homee';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  signupError: string;
+	form: FormGroup;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, fb: FormBuilder, private auth: AuthService) {
+    this.form = fb.group({
+      username: ['', Validators.compose([Validators.required])],
+			email: ['', Validators.compose([Validators.required, Validators.email])],
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+      phone: ['', Validators.compose([Validators.required])],
+      category: ['', Validators.compose([Validators.required])],
+    })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+
+  submit_signup() {
+
+    let data = this.form.value;
+		let credentials = {
+			email: data.email,
+      password: data.password
+      };
+
+      let profile ={
+        username: data.username,
+        phone: data.phone,
+        category: data.category
+      };
+    
+		this.auth.signUp(credentials, profile).then(
+			() => this.navCtrl.setRoot(TabPage),
+			error => this.signupError = error.message
+		);
+  }
+
 
   homee(){
     this.navCtrl.push(HomeePage);

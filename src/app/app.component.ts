@@ -23,7 +23,10 @@ import { Calendar1Page } from '../pages/calendar1/calendar1';
 import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
 import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
 import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
+import { SignoutPage } from '../pages/signout/signout';
 
+import { AuthService } from '../services/auth.service';
+import { BookedPage } from '../pages/booked/booked';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,7 +38,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private auth: AuthService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -60,6 +63,8 @@ export class MyApp {
       { title: 'Register (Runner)', component: RegisterrunnerPage },
       { title: 'Register (Laundry)', component: RegisterlaundryPage },
       { title: 'Home (Laundry)', component: LaundryhomePage },
+      { title: 'Sign Out', component: SignoutPage },
+      { title: 'Booked', component: BookedPage },
     ];
 
   }

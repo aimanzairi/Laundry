@@ -24,7 +24,7 @@ export class AcceptRequestPage {
   doAlert() {
     const alert = this.alertCtrl.create({
       title: 'Thankyou!',
-      subTitle: 'You just accept from Hamdan!',
+      subTitle: 'You have accept from Amir !',
       buttons: ['OK']
     });
     alert.present();

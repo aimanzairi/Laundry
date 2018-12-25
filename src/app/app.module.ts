@@ -23,14 +23,20 @@ import { RequestdetailsPage } from '../pages/requestdetails/requestdetails';
 import { RunnerhomePage } from '../pages/runnerhome/runnerhome';
 import { ResitPage } from '../pages/resit/resit';
 import { Calendar1Page } from '../pages/calendar1/calendar1';
-
+import { SignoutPage } from '../pages/signout/signout';
 import { CalendarModule } from 'ionic3-calendar-en';
 import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar";
 import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
 import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
 import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
 
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
+import { firebaseConfig } from '../config';
+import { AuthService } from '../services/auth.service';
+import { NgxErrorsModule } from '@ultimate/ngxerrors'
+import { BookedPage } from '../pages/booked/booked';
 
 @NgModule({
   declarations: [
@@ -56,12 +62,17 @@ import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
     RegisterrunnerPage,
     RegisterlaundryPage,
     LaundryhomePage,
+    SignoutPage,
+    BookedPage,
     
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CalendarModule
+    AngularFireModule.initializeApp(firebaseConfig.fire),
+    CalendarModule,
+    NgxErrorsModule,
+    AngularFirestoreModule
     
   ],
   bootstrap: [IonicApp],
@@ -88,6 +99,8 @@ import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
     RegisterrunnerPage,
     RegisterlaundryPage,
     LaundryhomePage,
+    SignoutPage,
+    BookedPage,
     
   ],
   providers: [
@@ -95,7 +108,9 @@ import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
     CalendarComponent,
-    
+    AngularFireAuth,
+    AuthService,
+    AngularFirestore
   ]
 })
 export class AppModule {}

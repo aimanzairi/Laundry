@@ -15,24 +15,45 @@
 
 <ion-content padding>
     <ion-row>
-        <img src="../../assets/imgs/logofyp.PNG" width="50%" height="50%"/>
+        <ion-col offset-3>
+            <img src="../../assets/imgs/logofyp.PNG"/>
+            </ion-col>
     </ion-row>
-    <ion-list>
-
-        <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-      
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <br>
-        <ion-row>
-            <button ion-button full (click)="homee()"> Login</button>
-        </ion-row>
-      
-      </ion-list>
+    <ion-row>
+      <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <ion-list inset>
+    
+          <ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
+            <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+          </ion-item>
+    
+          <div ngxErrors="email" #emailErrors="ngxErrors">
+            <div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']">It should be a valid email</div>
+          </div>
+    
+          <ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+          </ion-item>
+    
+          <div ngxErrors="password" #passwordErrors="ngxErrors">
+            <div [ngxError]="['minlength', 'required']" [when]="['touched']">It should be at least 5 characters</div>
+          </div>
+        </ion-list>
+    
+        <div padding-horizontal>
+          <div class="form-error">{{loginError}}</div>
+    
+          <button ion-button full type="submit" [disabled]="!loginForm.valid">Log in</button>
+          <div class="login-footer">
+            <p>
+              <a href="#" (click)="showPrompt()">Forgot password?</a>
+              If you're a new user, please sign up.
+            </p>
+          </div>
+    
+     
+        </div>
+      </form>
+    </ion-row>
 
 </ion-content>
