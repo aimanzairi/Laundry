@@ -27,6 +27,7 @@ import { SignoutPage } from '../pages/signout/signout';
 
 import { AuthService } from '../services/auth.service';
 import { BookedPage } from '../pages/booked/booked';
+import { BookingPage } from '../pages/booking/booking';
 
 @Component({
   templateUrl: 'app.html'
@@ -65,6 +66,7 @@ export class MyApp {
       { title: 'Home (Laundry)', component: LaundryhomePage },
       { title: 'Sign Out', component: SignoutPage },
       { title: 'Booked', component: BookedPage },
+      { title: 'Booking', component: BookingPage },
     ];
 
   }

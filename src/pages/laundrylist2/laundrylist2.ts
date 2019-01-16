@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import { Calendar1Page } from '../calendar1/calendar1';
+import { BookingPage } from '../booking/booking';
 /**
  * Generated class for the Laundrylist2Page page.
  *
@@ -23,8 +23,8 @@ export class Laundrylist2Page {
     console.log('ionViewDidLoad Laundrylist2Page');
   }
 
-  calendar1(){
-    this.navCtrl.push(Calendar1Page);
+  booking(){
+    this.navCtrl.push(BookingPage);
   }
 
 

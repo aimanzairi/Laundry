@@ -37,6 +37,7 @@ import { firebaseConfig } from '../config';
 import { AuthService } from '../services/auth.service';
 import { NgxErrorsModule } from '@ultimate/ngxerrors'
 import { BookedPage } from '../pages/booked/booked';
+import { BookingPage } from '../pages/booking/booking';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { BookedPage } from '../pages/booked/booked';
     LaundryhomePage,
     SignoutPage,
     BookedPage,
+    BookingPage,
     
   ],
   imports: [
@@ -101,6 +103,7 @@ import { BookedPage } from '../pages/booked/booked';
     LaundryhomePage,
     SignoutPage,
     BookedPage,
+    BookingPage,
     
   ],
   providers: [
