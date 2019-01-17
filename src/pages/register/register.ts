@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomeePage } from '../homee/homee';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../services/auth.service'
+import {AuthService} from '../../services/auth.service';
+// import {TabPage} from '../'
 /**
  * Generated class for the RegisterPage page.
  *
@@ -49,7 +50,7 @@ export class RegisterPage {
       };
     
 		this.auth.signUp(credentials, profile).then(
-			() => this.navCtrl.setRoot(TabPage),
+			() => this.navCtrl.setRoot(HomeePage),
 			error => this.signupError = error.message
 		);
   }

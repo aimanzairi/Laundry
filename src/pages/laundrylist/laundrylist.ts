@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { RequestdetailsPage } from '../requestdetails/requestdetails';
+import { LaundryService } from '../../services/laundry.service';
 
 /**
  * Generated class for the LaundrylistPage page.
@@ -18,12 +19,16 @@ import { RequestdetailsPage } from '../requestdetails/requestdetails';
 export class LaundrylistPage {
   testCheckboxOpen: any;
   testCheckboxResult: any;
+  laundrylists;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, public laundry: LaundryService) {
   }
 
-  ionViewDidLoad() {
+  ionViewCanEnter() {
     console.log('ionViewDidLoad LaundrylistPage');
+    this.laundrylists = this.laundry.listlaundry();
+    console.log(this.laundrylists);
+
   }
 
   showCheckbox() {
@@ -54,8 +59,8 @@ export class LaundrylistPage {
     });
     alert.present();
   }
-  requestdetails(){
-    this.navCtrl.push(RequestdetailsPage);
+  requestdetails(launid){
+    this.navCtrl.push(RequestdetailsPage,{laundryid: launid});
   }
 
 }

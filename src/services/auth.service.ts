@@ -5,6 +5,7 @@ import AuthProvider = firebase.auth.AuthProvider;
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import { FirebaseUserModel } from '../model/user.model'
 
 @Injectable()
 export class AuthService {
@@ -17,7 +18,39 @@ export class AuthService {
             this.user = user;
             this.userCollectionRef = this.afs.collection('users');
 		});
-	}
+    }
+    
+    getCurrentUser() {
+        return new Promise<any>((resolve, reject) => {
+          firebase.auth().onAuthStateChanged(function(user) {
+            let userModel = new FirebaseUserModel();
+            if (user) {
+              // userModel.name = user.displayName;
+              // userModel.provider = user.providerData[0].providerId;
+              console.log(user.uid);
+              firebase
+                .firestore()
+                .collection("users")
+                .doc(user.uid)
+                .get()
+                .then(async res => {
+                  console.log(await res.data());
+                  userModel.name = await res.data().username;
+                  userModel.phone = await res.data().phone;
+                  userModel.uid = await user.uid;
+    
+                  console.log(userModel);
+                })
+                .catch(function(error) {
+                  console.log("error getting document", error);
+                });
+              return resolve(userModel);
+            } else {
+              reject("No user logged in");
+            }
+          });
+        });
+      }
 
 	signInWithEmail(credentials) {
 		console.log('Sign in with email');
@@ -29,7 +62,8 @@ export class AuthService {
         return this.afAuth.auth
           .createUserWithEmailAndPassword(credentials.email, credentials.password)
           .then(newUserCredential => {
-            this.userCollectionRef.doc(newUserCredential.user.uid).set({
+              console.log(newUserCredential);
+            this.userCollectionRef.doc(newUserCredential.uid).set({
                 phone: profile.phone,
                 username: profile.username,
                 category: profile.category

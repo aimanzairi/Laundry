@@ -14,52 +14,37 @@
 
 
 <ion-content padding>
-
+<form class="form" [formGroup]="requestform" (ngSubmit)="presentLoading(requestform.value)">
   <ion-item>
     <ion-label floating>Address</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Address</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Address</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Phone Number</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input formControlName="address" type="text"></ion-input>
+    <ion-input formControlName="laundryid" type="text" value="{{laundryid}}" hidden></ion-input>
+    <ion-input formControlName="userid" type="text" value="{{user.uid}}" hidden></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Estimation mass(kg) >5kg</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input formControlName="estimate" type="number"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label floating>Total distance(km)</ion-label>
+    <ion-input formControlName="totalkm" type="number"></ion-input>
+  </ion-item>
  
   <ion-item>
       <ion-label>Pickup</ion-label>
-      <ion-checkbox color="secondary" checked="true"></ion-checkbox>
+      <ion-checkbox color="secondary" formControlName="pickup" checked="true"></ion-checkbox>
     </ion-item> 
     
     <ion-item>
       <ion-label>Return</ion-label>
-      <ion-checkbox color="secondary" ></ion-checkbox>
+      <ion-checkbox color="secondary" formControlName="return" ></ion-checkbox>
     </ion-item> 
-  
-  
-<ion-row>
-  <button ion-button color="danger" round>Cancel</button>
-  <button ion-button color="blue" round (click)="presentLoading()">Confirm</button>
-</ion-row>
 
+    <ion-row>
+      <button ion-button color="danger" round (click)="poppage()">Cancel</button>
+      <button ion-button color="blue" round type="submit">Confirm</button>
+    </ion-row>
+</form>
 </ion-content>

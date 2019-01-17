@@ -23,59 +23,32 @@
       </ion-list>
   </ion-row>
   <ion-row>
-      <ion-card>
+      <ion-card *ngFor="let item of laundrylists">
           <img src="../../assets/imgs/logofyp.PNG"/>
           <ion-card-content>
             <ion-card-title>
-              Laundry A
+              {{item.name}}
               </ion-card-title>
             
-              No. 23 Blok 1, Flat Ikan, Sri Serdang
+              {{item.address}}
             
             <br>
             
-                017 - 2467661
+                {{item.phone}}
               
               <br>
             
-                1 kg = RM 2.00
+                1 kg = RM {{item.pricekg}}
               
               <br>
               
-                  1 km = RM 1.20
+                  1 km = RM {{item.pricekm}}
                 
             <ion-item>
-                <button ion-button (click)="requestdetails()">Request Delivery</button>
+                <button ion-button (click)="requestdetails(item.laundrid)">Request Delivery</button>
               </ion-item>
           </ion-card-content>
         </ion-card>
-
-        <ion-card>
-            <img src="../../assets/imgs/logofyp.PNG"/>
-            <ion-card-content>
-              <ion-card-title>
-                Laundry B
-                </ion-card-title>
-                
-                    No. 2 Blok A, Sri Serdang
-                  
-                  <br>
-                
-                      017 - 2467001
-                    
-                    <br>
-                  
-                      1 kg = RM 1.50
-                    
-                    <br>
-                    
-                        1 km = RM 1.20
-                      
-              <ion-item>
-                  <button ion-button (click)="requestdetails()">Request Delivery</button>
-                </ion-item>
-            </ion-card-content>
-          </ion-card>
   </ion-row>
 
 </ion-content>

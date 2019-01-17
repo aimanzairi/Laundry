@@ -39,6 +39,8 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors'
 import { BookedPage } from '../pages/booked/booked';
 import { BookingPage } from '../pages/booking/booking';
 
+import { LaundryService } from '../services/laundry.service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -113,7 +115,8 @@ import { BookingPage } from '../pages/booking/booking';
     CalendarComponent,
     AngularFireAuth,
     AuthService,
-    AngularFirestore
+    AngularFirestore,
+    LaundryService
   ]
 })
 export class AppModule {}

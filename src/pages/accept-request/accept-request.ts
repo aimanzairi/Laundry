@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import * as firebase from 'firebase/app';
+import { LaundryService } from '../../services/laundry.service';
 /**
  * Generated class for the AcceptRequestPage page.
  *
@@ -10,17 +12,22 @@ import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
+  
   selector: 'page-accept-request',
   templateUrl: 'accept-request.html',
 })
 export class AcceptRequestPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
+  requestlist;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, public laundry: LaundryService) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     console.log('ionViewDidLoad AcceptRequestPage');
+    this.requestlist = this.laundry.listrequest();
+    console.log(this.requestlist);
+   
   }
+
   doAlert() {
     const alert = this.alertCtrl.create({
       title: 'Thankyou!',
