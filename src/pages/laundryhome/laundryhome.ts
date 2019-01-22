@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ComissionPage } from '../comission/comission';
-import { Calendar1Page } from '../calendar1/calendar1';
 import { AcceptRequestPageModule } from '../accept-request/accept-request.module';
 import { AcceptRequestPage } from '../accept-request/accept-request';
+import { HomeePage } from '../homee/homee';
 
 /**
  * Generated class for the LaundryhomePage page.
@@ -31,7 +31,7 @@ export class LaundryhomePage {
   tab3: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.tab1 = Calendar1Page;
+    this.tab1 = HomeePage;
     this.tab2 = AcceptRequestPage;
     this.tab3 = ComissionPage;
   }

@@ -19,7 +19,6 @@ import { Laundrylist2Page } from '../pages/laundrylist2/laundrylist2';
 import { RequestdetailsPage } from '../pages/requestdetails/requestdetails';
 import { RunnerhomePage } from '../pages/runnerhome/runnerhome';
 import { ResitPage } from '../pages/resit/resit';
-import { Calendar1Page } from '../pages/calendar1/calendar1';
 import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
 import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
 import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
@@ -60,7 +59,6 @@ export class MyApp {
       { title: 'Request Details', component: RequestdetailsPage },
       { title: 'Runner Home', component: RunnerhomePage },
       { title: 'Resit', component: ResitPage },
-      { title: 'Booking Slot', component: Calendar1Page },
       { title: 'Register (Runner)', component: RegisterrunnerPage },
       { title: 'Register (Laundry)', component: RegisterlaundryPage },
       { title: 'Home (Laundry)', component: LaundryhomePage },

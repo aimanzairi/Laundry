@@ -22,10 +22,8 @@ import { Laundrylist2Page } from '../pages/laundrylist2/laundrylist2';
 import { RequestdetailsPage } from '../pages/requestdetails/requestdetails';
 import { RunnerhomePage } from '../pages/runnerhome/runnerhome';
 import { ResitPage } from '../pages/resit/resit';
-import { Calendar1Page } from '../pages/calendar1/calendar1';
 import { SignoutPage } from '../pages/signout/signout';
 import { CalendarModule } from 'ionic3-calendar-en';
-import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar";
 import { RegisterrunnerPage } from '../pages/registerrunner/registerrunner';
 import { RegisterlaundryPage } from '../pages/registerlaundry/registerlaundry';
 import { LaundryhomePage } from '../pages/laundryhome/laundryhome';
@@ -60,8 +58,6 @@ import { LaundryService } from '../services/laundry.service';
     RequestdetailsPage,
     RunnerhomePage,
     ResitPage,
-    CalendarComponent,
-    Calendar1Page,
     RegisterrunnerPage,
     RegisterlaundryPage,
     LaundryhomePage,
@@ -98,8 +94,6 @@ import { LaundryService } from '../services/laundry.service';
     RequestdetailsPage,
     RunnerhomePage,
     ResitPage,
-    CalendarComponent,
-    Calendar1Page,
     RegisterrunnerPage,
     RegisterlaundryPage,
     LaundryhomePage,
@@ -112,7 +106,6 @@ import { LaundryService } from '../services/laundry.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
-    CalendarComponent,
     AngularFireAuth,
     AuthService,
     AngularFirestore,
